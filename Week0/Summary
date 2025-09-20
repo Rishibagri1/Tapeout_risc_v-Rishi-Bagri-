@@ -1,0 +1,19 @@
+Summary of the video 
+
+The design of the chip starts from a testbench in C is language which is parallely compiled in gcc and a RISC-V complier once the output of both matches we conclude that the specification of the chip are verified.
+
+Next we write the soft copy of the hardware using RTL language Verilog (which means we write how logic gates shall function inside a design), after writing hardware we ensure that functionality matches the specification from the previous step. 
+
+Next we deep dive in SOC design, the verilog code written is frther split in two steps Processor and periherals respectively. 
+
+The processor code is then converted to gate level synthesis. 
+
+The pheripherals are further classified in two categories Macros and analog IPs. Macros are used to instantiate code multiple time when needed, analog IPs are used to convert analog signals to digital signals so that they are synthesized by the chip.
+
+Then the testbench is further used for GPIOs for SOC integration. At the completion of the step we ensure that the output matches the specificaiton as mentioned earlier.
+
+Next we do RTL2GDS flow where we integrate all the steps we did before.
+
+Next the GDSII file is genrated, which is further examined by DRC checks and then sent for fabrication.
+
+Finally the testbench is tested on the peripherals of the chip to ensure that all the processes were executed correctly 
